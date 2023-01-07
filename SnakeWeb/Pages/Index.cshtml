@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<button class="btn-danger" onclick="startGame()">start</button>*@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div id="screenGDiv" class="text-center col-sm-4" onload="startGame()" >
+    
+        </div>
+        <div class="col-sm-4">
+            <div style="text-align:center">
+              <button onclick="moveup()">UP</button><br><br>
+              <button onclick="moveleft()">LEFT</button>
+              <button onclick="moveright()">RIGHT</button><br><br>
+              <button onclick="movedown()">DOWN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/site.js"></script>
+<script>
+    window.onload = startGame
+</script>

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4f0c3509-4a9b-47cd-ad27-cd37180717f0": {
+      "ProjectGuid": "4f0c3509-4a9b-47cd-ad27-cd37180717f0",
+      "DisplayName": "SnakeWeb",
+      "ColorIndex": 0
+    },
+    "919fd655-f067-4ba2-b932-d926e85dd6b4": {
+      "ProjectGuid": "919fd655-f067-4ba2-b932-d926e85dd6b4",
+      "DisplayName": "Script Documents",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
