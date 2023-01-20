@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "J8OFqUlL/IjbVgaizE6iXwAnqfv3XU2rfD6vuJKPzBE=",
+  "Hash": "1eKwSuXbJqrKFJnlnS506Jo2D4GxaTat1d7cm8kuUcc=",
   "Source": "SnakeWeb",
   "BasePath": "_content/SnakeWeb",
   "Mode": "Default",
@@ -136,6 +136,23 @@
       "OriginalItemSpec": "wwwroot\\js\\Main.js"
     },
     {
+      "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\Model\\DisplayScreen.js",
+      "SourceId": "SnakeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\",
+      "BasePath": "_content/SnakeWeb",
+      "RelativePath": "js/Model/DisplayScreen.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Model\\DisplayScreen.js"
+    },
+    {
       "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\Model\\Material.js",
       "SourceId": "SnakeWeb",
       "SourceType": "Discovered",
@@ -202,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\Test.js",
+      "SourceId": "SnakeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\",
+      "BasePath": "_content/SnakeWeb",
+      "RelativePath": "js/Test.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Test.js"
     },
     {
       "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
