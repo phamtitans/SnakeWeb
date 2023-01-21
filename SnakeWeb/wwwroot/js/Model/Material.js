@@ -22,13 +22,15 @@ export class Block {
 }
 
 export class Component {
-    constructor(blocks) {
+    constructor(blocks, maxSpeedX, maxSpeedY) {
         //this.blockList = [];
         this.blockList = blocks;
         this.accelerationX = 0;
         this.accelerationY = 0;
         this.speedX = 0;
         this.speedY = 0;
+        this.maxSpeedX = maxSpeedX;
+        this.maxSpeedY = maxSpeedY;
         
     }
     get direction() {
