@@ -22,7 +22,7 @@ export class Block {
 }
 
 export class Component {
-    constructor(blocks, maxSpeedX, maxSpeedY) {
+    constructor(blocks, maxSpeedX, maxSpeedY, minSpeedX, minSpeedY) {
         //this.blockList = [];
         this.blockList = blocks;
         this.accelerationX = 0;
@@ -31,6 +31,8 @@ export class Component {
         this.speedY = 0;
         this.maxSpeedX = maxSpeedX;
         this.maxSpeedY = maxSpeedY;
+        this.minSpeedX = minSpeedX;
+        this.minSpeedY = minSpeedY;
         
     }
     get direction() {

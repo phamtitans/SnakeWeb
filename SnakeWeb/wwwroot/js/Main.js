@@ -19,14 +19,12 @@ var blockShowList = [];
 var rateDPS = 20;
 var xUnit = 10;
 var yUnit = 10;
-var rateUnit = 0.1;
+var rateUnit = 0.175;
 
 startGame();
 function startGame() {
     console.log("start game!!");
-    headSnake1 = new Component(blocks,5,5);
-    //headSnake1.accelerationX = 0.015;
-    //headSnake1.accelerationY = 5;
+    headSnake1 = new Component(blocks);
     blockShowList.push(...headSnake1.blockList);
     myGameScreen1 = new Screen("screenGDiv");
     setInterval(updateGameScreen, rateDPS);
@@ -43,25 +41,24 @@ function updateGameScreen() {
 document.addEventListener("keydown", key => {
     switch (key.keyCode) {
         case 37:
+            if (headSnake1.direction == "RIGHT") break;
             CEngine.stopMove(headSnake1);
-            headSnake1.maxSpeedX = 5;
             CEngine.moveleft(headSnake1, xUnit, rateUnit);
             break;
         case 38:
+            if (headSnake1.direction == "DOWN") break;
             CEngine.stopMove(headSnake1);
             CEngine.moveup(headSnake1, yUnit, rateUnit);
             break;
         case 39:
+            if (headSnake1.direction == "LEFT") break;
             CEngine.stopMove(headSnake1);
-            headSnake1.maxSpeedX = 5;
             CEngine.moveright(headSnake1, xUnit, rateUnit);
             break;
         case 40:
+            if (headSnake1.direction == "UP") break;
             CEngine.stopMove(headSnake1);
             CEngine.movedown(headSnake1, yUnit, rateUnit);
-            break;
-        case 32:
-            CEngine.stopMoveX(headSnake1);
             break;
     }
 });
