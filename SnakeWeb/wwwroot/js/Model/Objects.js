@@ -24,13 +24,13 @@ export class Snake {
 
 export class Food {
     constructor(excludeBlock = []) {
-        var height = 10;
-        var width = 10;
-        var color = "orange";
-        var weight = 0;
-        var block1 = Block.RandomPointBlock(color, height, width, weight, excludeBlock);
+        this.height = 10;
+        this.width = 10;
+        this.color = "orange";
+        this.weight = 0;
+        var block1 = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, excludeBlock);
         excludeBlock.push(block1);
-        var block2 = Block.RandomPointBlock(color, height, width, weight, excludeBlock);
+        var block2 = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, excludeBlock);
         var blocks = [block1, block2];
         this.elements = new Component(blocks);
     }

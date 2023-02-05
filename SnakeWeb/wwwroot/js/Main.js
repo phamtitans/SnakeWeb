@@ -11,6 +11,7 @@ var Snake1 = new Snake(excludeBlock);
 excludeBlock.push(...Snake1.head.blockList);
 excludeBlock.push(...Snake1.body.blockList);
 var Food1 = new Food(excludeBlock);
+excludeBlock.push(...Food1.elements.blockList);
 var myGameScreen1;
 var x = 0;
 var y = 100;
@@ -38,8 +39,13 @@ function startGame() {
 
 function updateGameScreen() {
     DEngine.clearScreen(myGameScreen1);
+    excludeBlock = [];
     //feed
     CEngine.impactSnake(Snake1, [Food1]);
+    excludeBlock.push(...Snake1.head.blockList);
+    excludeBlock.push(...Snake1.body.blockList);
+    excludeBlock.push(...Food1.elements.blockList);
+    CEngine.createFood(Food1, 2, excludeBlock);
     //CEngine.impactHead(Snake1.head.blockList, Food1.elements.blockList);
     blockShowList = [];
     //CEngine.newHeadSnakePos(headSnake1);

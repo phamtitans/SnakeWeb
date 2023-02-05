@@ -7,7 +7,10 @@ export function clearScreen(screen) {
 export function updateScreen(myGameScreen, showList) {
     var ctx = myGameScreen.context;
     showList.forEach(function (value) {
-        ctx.fillStyle = value.color;
-        ctx.fillRect(value.point.x, value.point.y, value.width, value.height);
+        if (value != undefined) {
+
+            ctx.fillStyle = value.color;
+            ctx.fillRect(value.point.x, value.point.y, value.width, value.height);
+        }
     });
 }

@@ -163,14 +163,37 @@ export function limitSpeedObject(object) {
 
 }
 
+export function createFood(food,foodNumMax,excludeBlock=[]) {
+
+    while (food.elements.blockList.length <= foodNumMax) {
+        var newFoodBlock = Block.RandomPointBlock(food.color, food.height, food.width, food.weight, excludeBlock);
+        food.elements.blockList.push(newFoodBlock);
+    }
+}
 export function impactSnake(snake, objects) {
+    var excludeBlock = [];
     objects.forEach(function (value) {
         //feed
         if (value instanceof Food) {
             var blockResult = impactHead(snake.head.blockList, value.elements.blockList);
-            if (blockResult != null && blockResult.length > 0)
-
+            if (blockResult != null && blockResult.length > 0) {
+                var newBlocks = Block.CloneBlock(snake.head.blockList, 0, 0, "green");
+                newBlocks.forEach(function (value) {
+                    //if (snake.body.blockList.length > (newBlocks.length + 1)) {
+                    //    snake.body.blockList.pop();
+                    //}
+                    snake.body.blockList.unshift(value);
+                });
+                newHeadSnakePos(snake.head);
                 console.log("eated");
+                var ind = value.elements.blockList.findIndex(function (block) {
+                    return block.point.x == blockResult[0].point.x && block.point.y == blockResult[0].point.y;
+                });
+                console.log(ind);
+                //delete value.elements.blockList[ind];
+                value.elements.blockList.splice(ind, 1);
+                console.log(value.elements.blockList);
+            }
         }
     });
 }
