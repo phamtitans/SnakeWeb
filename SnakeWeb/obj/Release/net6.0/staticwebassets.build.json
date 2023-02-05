@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f7WnwR/HnnYtMOyMSYpmgk2IP3zrLPiHlyh4Vf0tP5c=",
+  "Hash": "G5dMcfwlAG8yVxjCWO51VWK0TfQdrXAYGjn4+y2jTMM=",
   "Source": "SnakeWeb",
   "BasePath": "_content/SnakeWeb",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Model\\Material.js"
+    },
+    {
+      "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\Model\\Objects.js",
+      "SourceId": "SnakeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\",
+      "BasePath": "_content/SnakeWeb",
+      "RelativePath": "js/Model/Objects.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Model\\Objects.js"
     },
     {
       "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",

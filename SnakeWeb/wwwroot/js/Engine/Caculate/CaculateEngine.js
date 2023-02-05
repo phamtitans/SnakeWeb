@@ -1,6 +1,9 @@
 ﻿
 // caculate
 
+import { Block } from "../../Model/Material.js";
+import { Snake, Food } from "../../Model/Objects.js";
+
 // control object
 
 export function moveup(object, yUnit, rateUnit) {
@@ -96,7 +99,15 @@ export function newHeadSnakePos(headSnake) {
         value.point.y += headSnake.speedY;
     });
 }
-
+export function moveBody(snake) {
+    var newBlocks = Block.CloneBlock(snake.head.blockList,0,0,"green");
+    newBlocks.forEach(function (value) {
+        if (snake.body.blockList.length > (newBlocks.length +1)) {
+            snake.body.blockList.pop();
+        }
+        snake.body.blockList.unshift(value);
+    });
+}
 export function newHeadSnakePosSpecial(headSnake) {
 
     if (headSnake.speedY >= 10) {
@@ -152,5 +163,41 @@ export function limitSpeedObject(object) {
 
 }
 
+export function impactSnake(snake, objects) {
+    objects.forEach(function (value) {
+        //feed
+        if (value instanceof Food) {
+            var blockResult = impactHead(snake.head.blockList, value.elements.blockList);
+            if (blockResult != null && blockResult.length > 0)
+
+                console.log("eated");
+        }
+    });
+}
+export function impactHead(headBlockList, blockList) {
+    var rsBlocks = [];
+    headBlockList.forEach(function (value) {
+        var headBlock = value;
+        blockList.forEach(function (value) {
+            if (impactBlock(headBlock, value)) {
+                rsBlocks = [value, headBlock];
+            };
+        });
+    });
+    return rsBlocks;
+}
+export function impactBlock(block1, block2) {
+    if (
+        (Math.abs(block1.point.x - block2.point.x) < Math.abs(block1.width) &&
+        Math.abs(block1.point.y - block2.point.y) < Math.abs(block1.height)) ||
+        (Math.abs(block1.point.x - block2.point.x) < Math.abs(block2.width) &&
+        Math.abs(block1.point.y - block2.point.y) < Math.abs(block2.height))
+        ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 

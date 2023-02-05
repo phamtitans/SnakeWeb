@@ -19,12 +19,42 @@ export class Block {
         this.width = width;
         this.weight = weight;
     }
+    static RandomPointBlock(color, height, width, weight,excludeArr = [], xMax = 200, xMin = 0, yMax = 100, yMin = 0) {
+        var x;
+        var y;
+        var flagStopRandom = false;
+        while (flagStopRandom == false) {
+            x = Math.floor(Math.random() * (xMax - xMin + 1)) + xMin;
+            y = Math.floor(Math.random() * (yMax - yMin + 1)) + yMin;
+            flagStopRandom = true;
+            excludeArr.forEach(function (value) {
+                if (
+                    Math.abs(value.point.x - x) < Math.abs(width) &&
+                    Math.abs(value.point.y - y) < Math.abs(height)
+                ) {
+                    flagStopRandom = false;
+                    //x = Math.floor(Math.random() * (xMax - xMin + 1)) + xMin;
+                    //y = Math.floor(Math.random() * (yMax - yMin + 1)) + yMin;
+                }
+            });
+        }
+        return new Block(x, y, color, height, width, weight);
+    }
+    static CloneBlock(blocks,xAdd=0,yAdd=0, newColor) {
+        var newBlocks = [];
+        blocks.forEach(function (value) {
+
+            var newBlock = new Block(value.point.x + xAdd, value.point.y + yAdd, newColor ?? value.color, value.height, value.width, value.weight);
+            newBlocks.push(newBlock);
+        });
+        return newBlocks;
+    }
 }
 
 export class Component {
     constructor(blocks, maxSpeedX, maxSpeedY, minSpeedX, minSpeedY) {
         //this.blockList = [];
-        this.blockList = blocks;
+        this.blockList = blocks??[];
         this.accelerationX = 0;
         this.accelerationY = 0;
         this.speedX = 0;
@@ -81,10 +111,3 @@ export class Component {
 //    DOWN_LEFT = 8
 //}
 
-class Snake {
-    constructor() {
-        this.head = new Component();
-        this.body = new Component();
-
-    }
-}
