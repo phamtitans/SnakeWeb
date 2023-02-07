@@ -23,16 +23,56 @@ export class Snake {
 }
 
 export class Food {
-    constructor(excludeBlock = []) {
+    constructor(excludeBlock = [],area = []) {
         this.height = 10;
         this.width = 10;
         this.color = "orange";
         this.weight = 0;
-        var block1 = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, excludeBlock);
+        var block1 = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, excludeBlock, area[0] - this.width, area[1] - this.height);
         excludeBlock.push(block1);
-        var block2 = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, excludeBlock);
+        var block2 = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, excludeBlock, area[0] - this.width, area[1] - this.height);
         var blocks = [block1, block2];
         this.elements = new Component(blocks);
+    }
+}
+
+export class Obstackle {
+    constructor(area = [],numSplit = 1.5) {
+        this.color = "red";
+        this.height = 10;
+        this.width = 10;
+        var seedBlocks = []
+        for (var i = 0; i < numSplit * numSplit ; i++) {
+            var xMax = area[0] * (i + 1) / numSplit - this.width * 2;
+            var xMin = area[0] * i / numSplit + this.width * 2;
+            for (var j = 0; j < numSplit * numSplit; j++) {
+                var yMax = area[1] * (j + 1) / numSplit - this.height * 2;
+                var yMin = area[1] * j / numSplit + this.height * 2;
+                var seedBlock = Block.RandomPointBlock(this.color, this.height, this.width, this.weight, [], xMax, yMax, xMin, yMin);
+                seedBlocks.push(seedBlock);
+            }
+        }
+        var blocks = [];
+        blocks.push(...seedBlocks);
+        seedBlocks.forEach(function (value,index) {
+            if (index % 2 == 0) {
+                for (var i = 0; i < 2;i++) {
+                    var newCloneBlocks1 = Block.CloneBlock([value], 10 + i * 10, 0, value.color);
+                    blocks.push(...newCloneBlocks1);
+                    var newCloneBlocks2 = Block.CloneBlock([value], 0, 10 + i * 10, value.color);
+                    blocks.push(...newCloneBlocks2);
+                }
+            }
+            else {
+                for (var i = 0; i < 2; i++) {
+                    var newCloneBlocks1 = Block.CloneBlock([value], -10 - i * 10, 0, value.color);
+                    blocks.push(...newCloneBlocks1);
+                    var newCloneBlocks2 = Block.CloneBlock([value], 0, -10 - i * 10, value.color);
+                    blocks.push(...newCloneBlocks2);
+                }
+            }
+        });
+        this.Component = new Component(blocks);
     }
 }
 export class Score {
@@ -49,5 +89,6 @@ export class Player {
     constructor(snake) {
         this.Score = new Score();
         this.Snake = snake;
+        this.GameOver = false;
     }
 }

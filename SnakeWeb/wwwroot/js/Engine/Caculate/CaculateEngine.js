@@ -2,7 +2,7 @@
 // caculate
 
 import { Block } from "../../Model/Material.js";
-import { Snake, Food } from "../../Model/Objects.js";
+import { Snake, Food, Obstackle } from "../../Model/Objects.js";
 
 // control object
 
@@ -195,6 +195,17 @@ export function impactSnake(player,objects) {
                 //delete value.elements.blockList[ind];
                 value.elements.blockList.splice(ind, 1);
                 console.log(value.elements.blockList);
+            }
+        }
+        //crash
+        if (value instanceof Obstackle) {
+            var blockResult = impactHead(player.Snake.head.blockList, value.Component.blockList);
+            if (blockResult != null && blockResult.length > 0) {
+                
+                //add +1 score
+                player.GameOver = true;
+
+                console.log(player.Score.value);
             }
         }
     });
