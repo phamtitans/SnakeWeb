@@ -52,6 +52,7 @@ function updateGameScreen() {
 
         DEngine.clearScreen(myGameScreen1);
         excludeBlock = [];
+        excludeBlock.push(...Obstackle1.Component.blockList);
         //feed
         CEngine.impactSnake(player1, [Food1, Obstackle1]);
         excludeBlock.push(...Snake1.head.blockList);
