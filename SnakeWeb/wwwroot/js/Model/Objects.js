@@ -35,3 +35,19 @@ export class Food {
         this.elements = new Component(blocks);
     }
 }
+export class Score {
+    constructor() {
+        this.color = "black",
+        this.size = "30px",
+        this.style = "Consolas",
+        this.width = 400,
+        this.height = 40,
+        this.value = 0
+    }
+}
+export class Player {
+    constructor(snake) {
+        this.Score = new Score();
+        this.Snake = snake;
+    }
+}

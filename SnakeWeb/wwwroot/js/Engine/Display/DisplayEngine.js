@@ -4,6 +4,12 @@ export function clearScreen(screen) {
     screen.context.clearRect(0, 0, screen.canvas.width, screen.canvas.height);
 
 }
+export function updatePlayerScreen(myGameScreen, player) {
+    var ctx = myGameScreen.context;
+    ctx.font = player.Score.size + " " + player.Score.style;
+    ctx.fillStyle = "black";
+    ctx.fillText("SCORE: " + player.Score.value, player.Score.width, player.Score.height);
+}
 export function updateScreen(myGameScreen, showList) {
     var ctx = myGameScreen.context;
     showList.forEach(function (value) {

@@ -163,33 +163,35 @@ export function limitSpeedObject(object) {
 
 }
 
-export function createFood(food,foodNumMax,excludeBlock=[]) {
+export function createFood(food,foodNumMax,excludeBlock=[],area = []) {
 
     while (food.elements.blockList.length <= foodNumMax) {
-        var newFoodBlock = Block.RandomPointBlock(food.color, food.height, food.width, food.weight, excludeBlock);
+        var newFoodBlock = Block.RandomPointBlock(food.color, food.height, food.width, food.weight, excludeBlock, area[0] - food.width, area[1] - food.height);
         food.elements.blockList.push(newFoodBlock);
     }
 }
-export function impactSnake(snake, objects) {
+export function impactSnake(player,objects) {
     var excludeBlock = [];
     objects.forEach(function (value) {
         //feed
         if (value instanceof Food) {
-            var blockResult = impactHead(snake.head.blockList, value.elements.blockList);
+            var blockResult = impactHead(player.Snake.head.blockList, value.elements.blockList);
             if (blockResult != null && blockResult.length > 0) {
-                var newBlocks = Block.CloneBlock(snake.head.blockList, 0, 0, "green");
+                var newBlocks = Block.CloneBlock(player.Snake.head.blockList, 0, 0, "green");
                 newBlocks.forEach(function (value) {
                     //if (snake.body.blockList.length > (newBlocks.length + 1)) {
                     //    snake.body.blockList.pop();
                     //}
-                    snake.body.blockList.unshift(value);
+                    player.Snake.body.blockList.unshift(value);
                 });
-                newHeadSnakePos(snake.head);
-                console.log("eated");
+                newHeadSnakePos(player.Snake.head);
+                //add +1 score
+                player.Score.value += 1;
+                console.log(player.Score.value);
                 var ind = value.elements.blockList.findIndex(function (block) {
                     return block.point.x == blockResult[0].point.x && block.point.y == blockResult[0].point.y;
                 });
-                console.log(ind);
+                //console.log(ind);
                 //delete value.elements.blockList[ind];
                 value.elements.blockList.splice(ind, 1);
                 console.log(value.elements.blockList);

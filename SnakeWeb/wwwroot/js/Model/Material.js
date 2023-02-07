@@ -19,7 +19,7 @@ export class Block {
         this.width = width;
         this.weight = weight;
     }
-    static RandomPointBlock(color, height, width, weight,excludeArr = [], xMax = 200, xMin = 0, yMax = 100, yMin = 0) {
+    static RandomPointBlock(color, height, width, weight, excludeArr = [], xMax = 200, yMax = 100, xMin = 0, yMin = 0) {
         var x;
         var y;
         var flagStopRandom = false;
