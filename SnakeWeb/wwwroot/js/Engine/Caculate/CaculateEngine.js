@@ -121,7 +121,7 @@ export function newHeadSnakePosSpecial(headSnake) {
     headSnake.speedX += headSnake.accelerationX
     headSnake.speedY += headSnake.accelerationY;
 
-    console.log(headSnake.direction);
+    //console.log(headSnake.direction);
     headSnake.blockList.forEach(function (value, index) {
         if (value.point.x <= 200) {
             console.log(value.point.x);
@@ -187,14 +187,14 @@ export function impactSnake(player,objects) {
                 newHeadSnakePos(player.Snake.head);
                 //add +1 score
                 player.Score.value += 1;
-                console.log(player.Score.value);
+                //console.log(player.Score.value);
                 var ind = value.elements.blockList.findIndex(function (block) {
                     return block.point.x == blockResult[0].point.x && block.point.y == blockResult[0].point.y;
                 });
                 //console.log(ind);
                 //delete value.elements.blockList[ind];
                 value.elements.blockList.splice(ind, 1);
-                console.log(value.elements.blockList);
+                //console.log(value.elements.blockList);
             }
         }
         //crash
@@ -205,7 +205,7 @@ export function impactSnake(player,objects) {
                 //add +1 score
                 player.GameOver = true;
 
-                console.log(player.Score.value);
+                //console.log(player.Score.value);
             }
         }
     });

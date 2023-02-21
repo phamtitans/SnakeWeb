@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G5dMcfwlAG8yVxjCWO51VWK0TfQdrXAYGjn4+y2jTMM=",
+  "Hash": "uKWJuXPbKUFKwXe2Mjs7+Id6ZjPSMs/WHAa4qgBhS8Q=",
   "Source": "SnakeWeb",
   "BasePath": "_content/SnakeWeb",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\chat.js"
+    },
+    {
+      "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\ConnectionProcess.js",
+      "SourceId": "SnakeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\",
+      "BasePath": "_content/SnakeWeb",
+      "RelativePath": "js/ConnectionProcess.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ConnectionProcess.js"
     },
     {
       "Identity": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\wwwroot\\js\\Engine\\Caculate\\CaculateEngine.js",

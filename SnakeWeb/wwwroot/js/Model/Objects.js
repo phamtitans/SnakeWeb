@@ -87,6 +87,7 @@ export class Score {
 }
 export class Player {
     constructor(snake) {
+        this.Name = "PhuongDepTrai" + Math.random()*10
         this.Score = new Score();
         this.Snake = snake;
         this.GameOver = false;
