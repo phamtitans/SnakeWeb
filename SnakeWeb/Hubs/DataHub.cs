@@ -36,8 +36,9 @@ namespace SnakeWeb.Hubs
                 }
 
             }
-
-            await Clients.Caller.SendAsync("ReceiveCheckExistedHostResult", hostExistedRs);
+            var foodDataStringRs = _dataHubConnectionManager?.FoodDataString;
+            var obstackleDataStringRs = _dataHubConnectionManager?.ObstackleDataString;
+            await Clients.Caller.SendAsync("ReceiveCheckExistedHostResult", hostExistedRs, foodDataStringRs, obstackleDataStringRs);
         }
         //public async Task CreateHost(string foodDataString,string obstackleDataString)
         //{
@@ -52,7 +53,7 @@ namespace SnakeWeb.Hubs
 
         public async Task SendData(string user, string playerDataString)
         {
-            Console.WriteLine(user);
+            //Console.WriteLine(user);
             if (
                 !_dataHubConnectionManager.ConnectionData.Any()||
                 _dataHubConnectionManager.ConnectionData.FirstOrDefault(d => d.Name.Equals(user)) == null
@@ -68,8 +69,24 @@ namespace SnakeWeb.Hubs
             else
             {
                 _dataHubConnectionManager.ConnectionData.FirstOrDefault(d => d.Name.Equals(user)).StringData = playerDataString;
+                await Clients.Others.SendAsync("ReceiveData", playerDataString);
             }
 
+        }
+
+        public async Task UpdateFood(string foodDataString)
+        {
+            _dataHubConnectionManager.FoodDataString = foodDataString;
+            await Clients.Others.SendAsync("ReceiveUpdateFoodResult", foodDataString);
+        }
+        public async Task RemovePlayer(string user)
+        {
+            var player = _dataHubConnectionManager.ConnectionData.FirstOrDefault(d => d.Name.Equals(user));
+            if (player != null)
+            {
+                await Clients.Others.SendAsync("ReceiveRemovePlayer", user);
+                _dataHubConnectionManager.ConnectionData.Remove(player);
+            }
         }
     }
 }

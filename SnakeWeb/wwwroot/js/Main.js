@@ -11,6 +11,7 @@ myGameScreen1 = new Screen("screenGDiv");
 var excludeBlock = [];
 var Obstackle1 = new Obstackle([myGameScreen1.canvas.width, myGameScreen1.canvas.height]);
 excludeBlock.push(...Obstackle1.Component.blockList);
+//var Snake1;
 var Snake1 = new Snake(excludeBlock);
 excludeBlock.push(...Snake1.head.blockList);
 excludeBlock.push(...Snake1.body.blockList);
@@ -46,6 +47,7 @@ connection.start().then(function () {
 });
 
 var otherPlayerListData = [];
+var otherNamePlayerListData = [];
 var foodData;
 var obstackleData;
 
@@ -59,26 +61,21 @@ function updateGameScreen() {
     if (player1.GameOver) {
         clearInterval(interval);
         alert("Game Over");
-        if (confirm("Play again?")) document.location = window.location.href;
+        if (confirm("Play again?")) {
+            removePlayer(player1);
+            document.location = window.location.href;
+        }
     }
     else {
-        //
-        if (connectionFlag == true && hostExisted == true) {
-            if (updateObstakle == true) {
-                Obstackle1 = obstackleData;
-                updateObstakle = false;
-            }
-            if (updateFood == true) {
-                Food1 = foodData;
-                updateFood = false;
-            }
-        } 
         //
         DEngine.clearScreen(myGameScreen1);
         excludeBlock = [];
         excludeBlock.push(...Obstackle1.Component.blockList);
         //feed
-        CEngine.impactSnake(player1, [Food1, Obstackle1]);
+        var rsImpact = CEngine.impactSnake(player1, [Food1, Obstackle1]);
+        if (rsImpact[0]) {
+            updateFoodToOther(Food1);
+        }
         excludeBlock.push(...Snake1.head.blockList);
         excludeBlock.push(...Snake1.body.blockList);
         excludeBlock.push(...Food1.elements.blockList);
@@ -97,6 +94,11 @@ function updateGameScreen() {
             if (hostExisted == true) {
                 sendDataToServer(player1);
             }
+
+            otherPlayerListData.forEach(function (value) {
+                blockShowList.push(...value.Snake.head.blockList);
+                blockShowList.push(...value.Snake.body.blockList);
+            });
             //else {
             //    sendDataToServer(blockShowList);
             //}
@@ -134,18 +136,20 @@ document.addEventListener("keydown", key => {
     }
 });
 
+function removePlayer(player) {
+    var user = player.Name;
+    connection.invoke("RemovePlayer", user).catch(function (err) {
+        return console.error(err.toString());
+    });
+}
 
-connection.on("ReceiveData", function (message) {
-
-    var x = JSON.parse(message);
-    console.log(message);
-
-    //var li = document.createElement("li");
-    //document.getElementById("messagesList").appendChild(li);
-    // We can assign user-supplied strings to an element's textContent because it
-    // is not interpreted as markup. If you're assigning in any other way, you 
-    // should be aware of possible script injection concerns.
-    //li.textContent = `${user} says ${message}`;
+connection.on("ReceiveRemovePlayer", function (user) {
+    if (otherNamePlayerListData.includes(user)) {
+        var playerIndex = otherPlayerListData.findIndex(function (value) {
+            return value.Name == user;
+        });
+        otherPlayerListData.splice(playerIndex, 1);
+    }
 });
 
 function sendDataToServer(player) {
@@ -157,7 +161,12 @@ function sendDataToServer(player) {
         return console.error(err.toString());
     });
 }
-
+function updateFoodToOther(food) {
+    var data = JSON.stringify(food);
+    connection.invoke("UpdateFood", data).catch(function (err) {
+        return console.error(err.toString());
+    });
+}
 function checkExistedHost(obstackle, food) {
     var foodDataString = JSON.stringify(food);
     var obstackleDataString = JSON.stringify(obstackle);
@@ -166,18 +175,50 @@ function checkExistedHost(obstackle, food) {
     });
 }
 
-connection.on("ReceiveCheckExistedHostResult", function (hostExistedRs) {
+connection.on("ReceiveCheckExistedHostResult", function (hostExistedRs, foodDataStringRs, obstackleDataStringRs) {
     var stringRs = JSON.stringify(hostExistedRs);
-    hostExisted = (stringRs?.toLowerCase?.() ==='true');
-    //updateObstakle = (updateObstakleRs?.toLowerCase?.() ==='true');
-    //updateFood = (updateFoodRs?.toLowerCase?.() === 'true');
-    //if (hostExisted == true) {
+    hostExisted = (stringRs?.toLowerCase?.() === 'true');
+    if (hostExisted) {
+        excludeBlock = [];
 
-    //}
-    //var x = JSON.parse(message);
-    console.log(hostExisted);
-    console.log(updateObstakle);
-    console.log(updateFood);
+        var food = JSON.parse(foodDataStringRs);
+        Food1.elements.blockList = food.elements.blockList;
+        excludeBlock.push(...Food1.elements.blockList);
+
+        var obstackle = JSON.parse(obstackleDataStringRs);
+        Obstackle1.Component.blockList = obstackle.Component.blockList;
+        excludeBlock.push(...Obstackle1.Component.blockList);
+
+        //Snake1 = new Snake(excludeBlock);
+        //excludeBlock.push(...Snake1.head.blockList);
+        //excludeBlock.push(...Snake1.body.blockList);
+
+    }
+});
+
+connection.on("ReceiveUpdateFoodResult", function (foodDataString) {
+    var food = JSON.parse(foodDataString);
+    //updateFood = true;
+    Food1.elements.blockList = food.elements.blockList;
+});
+
+connection.on("ReceiveData", function (message) {
+
+    var player = JSON.parse(message);
+    var name = player.Name;
+    if (otherNamePlayerListData.includes(name)) {
+        var playerTarget = otherPlayerListData.find(function (value) {
+            return value.Name == name;
+        });
+        playerTarget.Snake.head.blockList = player.Snake.head.blockList;
+        playerTarget.Snake.body.blockList = player.Snake.body.blockList;
+    }
+    else {
+        otherNamePlayerListData.push(name);
+        otherPlayerListData.push(player);
+    }
+
+    //console.log(message);
 
     //var li = document.createElement("li");
     //document.getElementById("messagesList").appendChild(li);

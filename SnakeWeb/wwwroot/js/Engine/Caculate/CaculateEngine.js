@@ -171,7 +171,9 @@ export function createFood(food,foodNumMax,excludeBlock=[],area = []) {
     }
 }
 export function impactSnake(player,objects) {
-    var excludeBlock = [];
+    //var excludeBlock = [];
+    var foodImpact = false;
+    var obstackleImpact = false;
     objects.forEach(function (value) {
         //feed
         if (value instanceof Food) {
@@ -194,6 +196,7 @@ export function impactSnake(player,objects) {
                 //console.log(ind);
                 //delete value.elements.blockList[ind];
                 value.elements.blockList.splice(ind, 1);
+                foodImpact = true;
                 //console.log(value.elements.blockList);
             }
         }
@@ -205,10 +208,12 @@ export function impactSnake(player,objects) {
                 //add +1 score
                 player.GameOver = true;
 
+                obstackleImpact = true;
                 //console.log(player.Score.value);
             }
         }
     });
+    return [foodImpact, obstackleImpact]
 }
 export function impactHead(headBlockList, blockList) {
     var rsBlocks = [];
