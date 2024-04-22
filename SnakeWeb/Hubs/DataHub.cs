@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SnakeWeb.Infrastructure;
+using System.Text.Json;
 
 namespace SnakeWeb.Hubs
 {
@@ -87,6 +88,12 @@ namespace SnakeWeb.Hubs
                 await Clients.Others.SendAsync("ReceiveRemovePlayer", user);
                 _dataHubConnectionManager.ConnectionData.Remove(player);
             }
+        }
+
+        public async Task GetConnection()
+        {
+            var ConnectionDataString = JsonSerializer.Serialize(_dataHubConnectionManager.ConnectionData);
+            await Clients.All.SendAsync("ReceiveGetConnection", ConnectionDataString);
         }
     }
 }

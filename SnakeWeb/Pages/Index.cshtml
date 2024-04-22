@@ -7,21 +7,61 @@
 @*<button class="btn-danger" onclick="startGame()">start</button>*@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-4"></div>
-        <div id="screenGDiv" class="text-center col-sm-4" onload="startGame()" >
-    
+
+        <div class="col-sm-2">
+            
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-8 text-center ">
+            <div id="screenGDiv" style="width:683px;height:384px; margin:auto" class="text-center" onload="startGame()">
+            </div>
+
+        </div>
+
+        <div class="col-sm-2">
+            <table class="table-bordered table-responsive" style="width: 100%;table-layout: fixed;" id="playerList">
+                <thead>
+                    <tr>
+                        <td>Player</td>
+                        <td>Score</td>
+                    </tr>
+
+                </thead>
+                <tbody class="toast-body" id="playerListBody">
+                </tbody>
+            </table>
+        </div>
+        @* <div class="col-sm-4">
             <div style="text-align:center">
               <button onclick="moveup()">UP</button><br><br>
               <button onclick="moveleft()">LEFT</button>
               <button onclick="moveright()">RIGHT</button><br><br>
               <button onclick="movedown()">DOWN</button>
             </div>
-        </div>
+        </div> *@
     </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 @*<script src="~/js/site.js"></script>*@
 <script type="module" src="~/js/Engine/Caculate/CaculateEngine.js"></script>

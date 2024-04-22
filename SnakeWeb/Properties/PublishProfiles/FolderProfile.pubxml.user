@@ -4,7 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>D:\Deploy\Game\SnakeWeb</_PublishTargetUrl>
-    <History>True|2023-01-02T14:44:48.2699317Z;</History>
+    <_PublishTargetUrl>D:\EN\FunProject\deploy</_PublishTargetUrl>
+    <History>True|2024-04-21T23:58:53.2412773Z;True|2024-04-20T17:57:23.8902469+07:00;True|2024-04-16T03:09:23.0070955+07:00;True|2024-04-12T18:06:53.6546403+07:00;True|2024-04-11T00:01:41.3920319+07:00;True|2023-01-02T21:44:48.2699317+07:00;</History>
+    <LastFailureDetails />
   </PropertyGroup>
 </Project>

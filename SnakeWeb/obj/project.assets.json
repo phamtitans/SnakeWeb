@@ -98,19 +98,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\phamt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\SnakeWeb.csproj",
+      "projectUniqueName": "D:\\EN\\FunProject\\SnakeWeb\\SnakeWeb\\SnakeWeb.csproj",
       "projectName": "SnakeWeb",
-      "projectPath": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\SnakeWeb.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\Study\\Game\\Snake\\SnakeWeb - Docker\\SnakeWeb\\obj\\",
+      "projectPath": "D:\\EN\\FunProject\\SnakeWeb\\SnakeWeb\\SnakeWeb.csproj",
+      "packagesPath": "C:\\Users\\phamt\\.nuget\\packages\\",
+      "outputPath": "D:\\EN\\FunProject\\SnakeWeb\\SnakeWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\phamt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -147,7 +147,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -159,7 +160,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
