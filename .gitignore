@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/SnakeWeb/FileContentIndex/34854a68-2d7e-4f20-bb60-9fa897461777.vsidx
+/.vs/SnakeWeb/FileContentIndex/77088fc8-4c20-429a-9c43-7d684e5e447f.vsidx
+/.vs/SnakeWeb/FileContentIndex
+/.vs/SnakeWeb/v17/.suo
+/SnakeWeb/bin/Release/net6.0/SnakeWeb.dll
+/SnakeWeb/bin/Release/net6.0/SnakeWeb.pdb
+/SnakeWeb/bin/Release/net6.0/SnakeWeb.staticwebassets.runtime.json
+/.vs/SnakeWeb/v17/.suo
