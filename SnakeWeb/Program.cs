@@ -28,5 +28,6 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapHub<ChatHub>("/chatHub");
 app.MapHub<DataHub>("/dataHub");
+app.MapHub<StreamHub>("/streamHub");
 
 app.Run();
