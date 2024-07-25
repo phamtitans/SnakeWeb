@@ -13,11 +13,12 @@ const connection = new signalR.HubConnectionBuilder()
     .build();
 document.getElementById("streamButton").addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
     try {
-        connection.stream("Counter", 10, 500)
+        connection.stream("FileStream", 500)
             .subscribe({
                 next: (item) => {
                     var li = document.createElement("li");
-                    li.textContent = item;
+                    li.textContent = String(item);
+                    console.log(item);
                     document.getElementById("messagesList").appendChild(li);
                 },
                 complete: () => {
@@ -31,6 +32,24 @@ document.getElementById("streamButton").addEventListener("click", (event) => __a
                     document.getElementById("messagesList").appendChild(li);
                 },
             });
+        //connection.stream("Counter", 10, 500)
+        //    .subscribe({
+        //        next: (item) => {
+        //            var li = document.createElement("li");
+        //            li.textContent = item;
+        //            document.getElementById("messagesList").appendChild(li);
+        //        },
+        //        complete: () => {
+        //            var li = document.createElement("li");
+        //            li.textContent = "Stream completed";
+        //            document.getElementById("messagesList").appendChild(li);
+        //        },
+        //        error: (err) => {
+        //            var li = document.createElement("li");
+        //            li.textContent = err;
+        //            document.getElementById("messagesList").appendChild(li);
+        //        },
+        //    });
     }
     catch (e) {
         console.error(e.toString());

@@ -1,8 +1,0 @@
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.exe
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\appsettings.json
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\libman.json
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.dll
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.deps.json
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.runtimeconfig.json
-E:\Study\Game\Snake\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.pdb

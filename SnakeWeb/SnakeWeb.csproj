@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\videos\VID20191108201946.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="OpenCvSharp4" Version="4.10.0.20240616" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.10.0.20240616" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\videos\VID20191108201946.mp4" />
   </ItemGroup>
 
 </Project>

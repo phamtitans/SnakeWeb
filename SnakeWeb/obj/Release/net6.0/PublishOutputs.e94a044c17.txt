@@ -1,8 +1,0 @@
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.exe
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\appsettings.json
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\libman.json
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.dll
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.deps.json
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.runtimeconfig.json
-D:\EN\FunProject\SnakeWeb\SnakeWeb\obj\Release\net6.0\PubTmp\Out\SnakeWeb.pdb
